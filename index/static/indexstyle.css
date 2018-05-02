@@ -1,0 +1,119 @@
+<style>
+	body,img,div,ul,li,p{
+		margin:0px;
+		padding:0px;
+		border:0px;
+	}
+	p{
+		margin:0px;
+		padding:0px;
+		border:0px;
+	}
+	ul{
+	list-style-type:none;
+	padding:0px;
+	margin:0px;
+	overflow:hidden;
+	}
+	div{
+	overflow:hidden;
+	}
+/* 第一行，包含地址和登录等 */
+	#title{
+	background:#eee;
+	}
+	#title-ul{
+		list-style-type:none;
+		margin:auto;
+		width:990px;
+		height:30px;
+		line-height:15px;
+		vertical-align:bottom;
+	}
+	.left{
+	float:left;
+	margin:8px 20px;
+	display:block;
+	}
+	.right{
+	float:right;
+	display:block;
+	margin:8px 0px;
+	padding:0px 10px;
+	border-left:1px solid;
+	color:#666;
+	}
+	.right-f{
+	float:right;
+	display:block;
+	margin:8px 0px;
+	padding:0px 10px;
+	color:#666;
+	}
+	a{
+	text-decoration:none;
+	color:#666;
+	}
+	#stare-recive{
+	text-decoration:none;
+	color:#64a131;
+	}
+	#banner{
+		width:100%;
+	}
+/* 第二行，包含内容主要为首页、鲜果、生鲜一行 */
+	#title2{
+		height:100px;
+		background:white;
+	}
+/* 第三行，大banner下面的一排水果位 */
+	#title3{
+		width:1310px;
+		margin:auto;
+	}
+	.fruit-box{
+		border:0px solid #666;
+		width:300px;
+		margin-right:26px;
+	}
+/* 水果矩阵 */
+	#title4{
+		width:1300px;
+		border-top:1px solid #999;
+		margin:30px auto;
+		padding-top:20px;
+	}
+	#more-bt{
+		float:right;
+	}
+	#title4>ul>li{
+	float:left;
+	width:256px;
+	overflow:hidden;
+	}
+	#title4>ul>li>div{
+	width:256px;
+	height:256px;
+	overflow:hidden;
+	}
+	#title4>ul>.pic{
+	margin-right:5px;
+	overflow:hidden;
+	}
+	img{
+	transition:all 0.3s;
+	}
+	img:hover{
+	transform:scale(1.1);
+	cursor:pointer;
+	}
+	.text-left{
+		float:left;
+		margin:10px 0px;
+		font-size:13px;
+	}
+	.fruit-buy-icon{
+		float:right;
+		padding:5px;
+	}
+</style>

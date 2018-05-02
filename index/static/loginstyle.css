@@ -1,0 +1,123 @@
+<style>
+		div{
+		}
+		.page{
+			margin:10px auto;
+			width:1500px;
+			height:680px;
+			background-color:white;
+		}
+		#main,#pic{
+			float:left;
+			margin:10px 50px
+		}
+		#main{
+			margin-top:156px;
+		}
+		#loaddiv td{
+			height:60px;
+			color:rgb(183,173,177);
+		}
+
+		/*输入框*/
+
+		#loaddiv .textbox{
+			width:358px;
+			height:38px;
+			outline:none;
+			font-size:16px;
+			margin:5px 0px;
+			padding:0px 10px;
+			background-color:FFFFFF;
+		}
+		#loaddiv .textbox #username{
+			background-image:url()
+		}
+		#loaddiv .textbox #password{
+			background-image:url()
+		}
+		#loaddiv .textbox:focus{
+			border:1px solid #64A131;
+			box-shadow:0px 0px 3px 2px #64A131；
+		}
+
+		/*按钮*/
+
+		.button{
+			width:150px;
+			height:45px;
+			border-radius:5%;
+			box-sizing:border-box;
+		}
+		
+		#load{
+			background-color:rgb(100,161,49);
+			color:rgb(255,255,255);
+			font-size:20px;
+			outline:none;
+			border:none;
+		}
+		#sign{
+			background-color:rgb(245,255,237);
+			color:rgb(100,161,49);
+			font-size:20px;
+			text-decoration:none;
+			outline:none;
+			border:1px solid rgb(100,161,49);
+			float:right;
+			text-align:center;
+			padding:9px;
+		}
+		/*记住密码*/
+		#member{
+			color:rgb(0,0,0);
+		}
+		#member .isRem{
+			width:18px;
+		}
+		/*悬停，访问样式*/
+		a:link,a:visited{
+			color:rgb(0,0,0);
+			text-decoration:underline;
+			float:right;
+			margin-left:20px;
+		}
+		#bottomline1{
+		width:1500px;
+		margin:auto;
+		height:160px;
+		}
+		#bottomline1>.bottombox{
+			width:360px;
+			height:100px;
+			border-right:1px solid rgb(150,150,150);
+			float:left;
+			position:relative;
+			top:20px;
+		}
+
+
+		#frout>.line{
+			margin:1px auto;
+			width:1410px;
+		}
+		#frout>.line>.box{
+			width:250px;
+			height:150px;
+			margin:10px 15px;
+			background:yellow;
+			border:1px solid #000;
+			float:left;
+		}
+		#frout>div>.fruitName{
+			width:250px;
+			height:10px;
+			margin:10px 15px;
+			float:left;
+		}
+		.fruitendbox{
+			float:none;
+			clear:both;
+		}
+							
+</style>

@@ -4,7 +4,7 @@ from django.db import models
 
 
 class Users(models.Model):
-    uphone = models.Charfield(max_length=20)
+    uphone = models.CharField(max_length=20)
     upwd = models.CharField(max_length=30)
     uemail = models.EmailField()
     uname = models.CharField(max_length=30)
@@ -12,12 +12,14 @@ class Users(models.Model):
 
 
 class GoodsType(models.Model):
-    title = ''
-    picture = 'static/upload/goodtype'
-    desc =
+    title = models.CharField(max_length=30)
+    desc = models.TextField()
+    picture = models.ImageField(upload_to='static/upload/goodstype')
 
 
 class Goods(models.Model):
-    title =
-    price =
-    spec =
+    title = models.CharField(max_length=30)
+    price = models.DecimalField(max_digits=7,decimal_places=2)
+    spec = models.CharField(max_length=30)
+    picture=models.ImageField(upload_to='static/upload/goods')
+    isActive=models.BooleanField(default=True)

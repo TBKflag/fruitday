@@ -7,7 +7,9 @@
   <meta name="Keywords" content="">
   <meta name="Description" content="">
   <title>Document</title>
-  <link rel="stylesheet" href="/static/indexstyle.css">
+  <!-- {% load static %} -->
+  <link rel="stylesheet" href={% static "/static/indexstyle.css" %}>
+{% load filters %}
 </head>
  <body>
 	<div id='title'>
@@ -23,20 +25,67 @@
 	  </ul>
 	</div>
 	<div id='title2'></div>
-	<div>
-		<img src="/static/img/f8f955c99a2f1a2ee8fea906d4da7d9e.jpg" id='banner'>
+	<div>		
+		{% for i in banner %}
+		 <!-- {{i.picture}} -->
+		<img src={{i.picture}} id='banner'>
+		{% endfor %}
 	</div>
 	<div id='title3'>
-		<img src='/static/img/2ba20598135dbba5e97d241ebfa167d9.jpg' class='fruit-box'>
+
+		{% for i in smallbanners %}
+			{% if forloop.counter|mod:4 %}
+			<img src={{i.picture}} class='fruit-box'　>
+			{% else %}
+			<img src={{i.picture}} class='fruit-boxlast' >
+			{% endif %}
+		{% endfor %}
+		<!-- <img src='/static/img/2ba20598135dbba5e97d241ebfa167d9.jpg' class='fruit-box'>
 		<img src="/static/img/25af37592bf484fbeaef1cc4ff1e09c7.jpg" class='fruit-box' alt="">
 		<img src="/static/img/904419aa2e364412b3c07c3cbda24ef9.jpg" class='fruit-box' alt="">
-		<img src="/static/img/d72b849b461c08d991c265df00a1bfde.jpg" class='fruit-boxlast' alt="">
+		<img src="/static/img/d72b849b461c08d991c265df00a1bfde.jpg" class='fruit-boxlast' alt=""> -->
 	</div>
 
 	<div id='title4'>礼品卡券
 		<a id='more-bt'>更多></a>
 		<ul>
+		{% for i in goods %}
+			{{forloop.counter|mod:5}}
+			{% if forloop.counter|mod:5 %}
 			<li class='pic'>
+				<div><img src={{i.picture}} alt=""></div>
+				<span>
+					<div class='text-left'>
+						<p>{{i.title}}</p>
+						<p>{{i.price}}/张</p>
+					</div>
+					<div class='fruit-buy-icon'>
+						<a href="">
+							<img src="/static/img/cart.png" alt="">
+						</a>
+					</div>
+				</span>
+			</li>
+			{%else%}
+			<li>
+				<div>
+					<img src={{i.picture}} alt="">
+				</div>
+				<span>
+					<div class='text-left'>
+						<p>{{i.title}}</p>
+						<p>{{i.price}}元/份</p>
+					</div>
+					<div class='fruit-buy-icon'>
+						<a href="">
+							<img src="/static/img/cart.png" alt="">
+						</a>
+					</div>
+				</span>
+			</li>
+			{%endif%}
+		{% endfor %}
+			<!-- <li class='pic'>
 				<div><img src="/static/img/1-270x270-419-TPSKW6SP.jpg" alt=""></div>
 				<span>
 					<div class='text-left'>
@@ -114,7 +163,7 @@
 					</div>
 					<div class='fruit-buy-icon'><a href=""><img src="/static/img/cart.png" alt=""></a></div>
 				</span>
-			</li>
+			</li> -->
 		</ul>	
 	</div>
  </body>

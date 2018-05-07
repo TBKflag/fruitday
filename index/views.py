@@ -22,6 +22,8 @@ def login_views(request):
 
 def index_views(request):
     banner=Banner.objects.all()
+    smallbanners = SmallBanner.objects.all()
+    goods=Goods.objects.all()
     return render(request,'index.html',locals())
     # return HttpResponse('main index')
 

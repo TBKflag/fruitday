@@ -24,3 +24,5 @@ class goodtypeAdmin(admin.ModelAdmin):
 admin.site.register(Users, userAdmin)
 admin.site.register(GoodsType, goodtypeAdmin)
 admin.site.register(Goods, GoodAdmin)
+admin.site.register(Banner,bannerAdmin)
+admin.site.register(SmallBanner)

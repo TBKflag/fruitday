@@ -4,10 +4,16 @@ from django.db import models
 
 class Banner(models.Model):
     title=models.CharField(max_length=30,verbose_name='banner')
-    picture=models.ImageField(upload_to='staic/upload/banner',verbose_name='图片')
+    picture = models.ImageField(upload_to='static/upload/banner',verbose_name='图片')    
     def __str__(self):
         return self.title
 
+
+class SmallBanner(models.Model):
+    title=models.CharField(max_length=30,verbose_name='广告位')
+    picture = models.ImageField(upload_to='static/upload/smallbanner',verbose_name='图片')
+    def __str__(self):
+        return self.title
 class Users(models.Model):
     uphone = models.CharField(max_length=20,verbose_name='电话号码')
     upwd = models.CharField(max_length=30,verbose_name='密码')
@@ -35,7 +41,7 @@ class GoodsType(models.Model):
 
 
 class Goods(models.Model):
-    title = models.CharField(max_length=30,verbose_name='商品类别')
+    title = models.CharField(max_length=30,verbose_name='商品名称')
     price = models.DecimalField(max_digits=7,decimal_places=2,verbose_name='价格')
     spec = models.CharField(max_length=30,verbose_name='介绍')
     picture=models.ImageField(upload_to='static/upload/goods',verbose_name='图片')

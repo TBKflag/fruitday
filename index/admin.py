@@ -1,6 +1,8 @@
 from django.contrib import admin
 from .models import *
 # Register your models here.
+class bannerAdmin(admin.ModelAdmin):
+    list_display = ['title', 'picture']
 
 class GoodAdmin(admin.ModelAdmin):
     list_display = ['id','title', 'price', 'spec', 'picture', 'isActive']
@@ -12,6 +14,7 @@ class userAdmin(admin.ModelAdmin):
     list_display = ['id','uname', 'uphone', 'uemail', 'isActive']
     list_editable = ['uname','uphone', 'uemail', 'isActive']
     search_fields=['uname','uphone','uemail']
+    fields=['uname','uphone','uemail','isActive']
 
 class goodtypeAdmin(admin.ModelAdmin):
     list_display = ['id','title', 'desc', 'picture']

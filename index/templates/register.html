@@ -14,51 +14,58 @@
 </style>
 {% endblock %}
 
-{% block form %}
-<table id='loaddiv'>
-    <tr>
-        <td width=180px align=center>手机号</td>
-        <td colspan=2>
-            <input name='username' type="text" class='textbox' id='username'>
-        </td>
-    </tr>
-    <tr>
-        <td align=center>&nbsp;&nbsp;密码</td>
-        <td colspan=2>
-            <input id='password' name='password' type="password" class='textbox' placeholder='请输入6-20位号码字符'>
-        </td>
-    </tr>
-    <tr>
-        <td align=center>&nbsp;&nbsp;确认密码</td>
-        <td colspan=2>
-            <input id='password' name='password' type="password" class='textbox' placeholder='请输入6-20位号码字符'>
-        </td>
-    </tr>
-    <tr>
-        <td align=center>电子邮箱</td>
-        <td colspan=2>
-            <input type="email" name='ueminl' class="textbox">
-        </td>
-        <td></td>
-    </tr>
-    <tr>
-        <td align=center>用户名</td>
-        <td colspan=2>
-            <input type="email" name='ueminl' class="textbox">
-        </td>
-        <td></td>
-    </tr>
-    <tr valign='top'>
-        <td></td>
-    
-        <td align=left>
-            <input type="submit" id='load' value='登录' class='button'>
-        </td>
-        <td>
-            <a href='' id='sign' class='button'>登录会员</td>
-    
-        <!-- <td><a href="" id='sign' class='button'>会员注册</a></td> -->
-    </tr>
-</table>
+{% block js %}
 
+{% endblock %}
+
+{% block form %}
+<form action={% url 'register' %} method="POST">
+    {% csrf_token %}
+    <table id='loaddiv'>
+        <tr>
+            <td width=180px align=center>手机号</td>
+            <td colspan=2>
+                <input name='uphone' type="text" class='textbox' id='username'>
+                <p>{{errMsg}}</p>
+            </td>
+        </tr>
+        <tr>
+            <td align=center>&nbsp;&nbsp;密码</td>
+            <td colspan=2>
+                <input id='password' name='upwd' type="password" class='textbox' placeholder='请输入6-20位号码字符'>
+            </td>
+        </tr>
+        <tr>
+            <td align=center>&nbsp;&nbsp;确认密码</td>
+            <td colspan=2>
+                <input id='password' name='rpwd' type="password" class='textbox' placeholder='请输入6-20位号码字符'>
+            </td>
+        </tr>
+        <tr>
+            <td align=center>电子邮箱</td>
+            <td colspan=2>
+                <input type="email" name='uemail' class="textbox">
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td align=center>用户名</td>
+            <td colspan=2>
+                <input type="text" name='uname' class="textbox">
+            </td>
+            <td></td>
+        </tr>
+        <tr valign='top'>
+            <td></td>
+        
+            <td align=left>
+                <input type="submit" id='load' value='注册' class='button'>
+            </td>
+            <td>
+                <a href='' id='sign' class='button'>登录会员</td>
+        
+            <!-- <td><a href="" id='sign' class='button'>会员注册</a></td> -->
+        </tr>
+    </table>
+</form>
 {% endblock %}

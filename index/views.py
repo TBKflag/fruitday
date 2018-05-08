@@ -7,14 +7,34 @@ from .models import *
 def login_views(request):
     # return HttpResponse('login index')
     if request.method=='GET':
-        return render(request,'login.html')
+        uid = 'uid' in request.COOKIES
+        uphone = 'uphone' in request.COOKIES
+        se = 'uid' in request.session
+        if se:
+            return HttpResponseRedirect('/')
+        elif uid and uphone:
+            # 从ｃｏｏｋｉｅ获取登录信息并保存进ｓｅｓｓｉｏｎ
+            uid=request.COOKIES['uid']
+            uphone=request.COOKIES['uphone']
+            request.session['uid']=uid
+            request.session['uphone']=uphone
+            return HttpResponseRedirect('/')
+        else:
+            return render(request,'login.html')
     else:
         # 处理用户的登录操作
         uphone=request.POST['uphone']
         upwd=request.POST['upwd']
         users=Users.objects.filter(uphone=uphone,upwd=upwd)
         if users:
-            return HttpResponseRedirect('/')
+            # 获取用户ＩＤ
+            uid=users[0].id
+            request.session['uid']=uid
+            resp= HttpResponseRedirect('/')
+            if 'isRem' in request.POST:
+                resp.set_cookie('uid', uid, 60*60*24*366)
+                resp.set_cookie('uphone', uphone, 60*60*24*366)
+            return resp
         else:
             errMsg = '用户名或密码输入不正确'
             return render(request,'login.html',locals())
@@ -24,8 +44,17 @@ def index_views(request):
     banner=Banner.objects.all()
     smallbanners = SmallBanner.objects.all()
     goods=Goods.objects.all()
-    return render(request,'index.html',locals())
-    # return HttpResponse('main index')
+    uid='uid' in request.COOKIES
+    uphone = 'uphone' in request.COOKIES
+    se = 'uid' in request.session
+    print('session',request.session)
+    if se:
+        return render(request,'index.html',locals())
+    elif uid and uphone:
+        return render(request,'index.html',locals())
+    else:
+        return HttpResponseRedirect('/login/')
+
 
 
 def register_views(request):

@@ -29,7 +29,9 @@ def login_views(request):
         if users:
             # 获取用户ＩＤ
             uid=users[0].id
+            uphone=users[0].uphone
             request.session['uid']=uid
+            request.session['uphone']=uphone
             resp= HttpResponseRedirect('/')
             if 'isRem' in request.POST:
                 resp.set_cookie('uid', uid, 60*60*24*366)
@@ -47,13 +49,22 @@ def index_views(request):
     uid='uid' in request.COOKIES
     uphone = 'uphone' in request.COOKIES
     se = 'uid' in request.session
-    print('session',request.session)
     if se:
-        return render(request,'index.html',locals())
-    elif uid and uphone:
-        return render(request,'index.html',locals())
-    else:
-        return HttpResponseRedirect('/login/')
+        uid=request.session['uid']
+        uphone=request.session['uphone']
+    return render(request,'index.html',locals())
+
+
+
+def logout_views(request):
+    resp = HttpResponseRedirect('/')
+    if 'uid' in request.COOKIES:
+        resp.delete_cookie('uid')
+        resp.delete_cookie('uphone')
+    if 'uid' in request.session:
+        del request.session['uid']
+        del request.session['uphone']
+    return resp
 
 
 
@@ -76,3 +87,8 @@ def register_views(request):
         return HttpResponseRedirect('/login/')
     elif request.method == 'GET':
         return render(request, 'register.html')
+
+
+def gooddetail_views(request,uid):
+    uid=uid
+    return render(request,'detail.html',locals())

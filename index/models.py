@@ -2,6 +2,15 @@ from django.db import models
 
 # Create your models here.
 
+ORDERSTATUS = (
+    (1,'未支付'),
+    (2,'支付中'),
+    (3,'已支付'),
+    (4,'支付失败'),
+)
+# 在数据库中存放的是数字，在客户端显示的是４个汉子选项
+# ispay = models.IntegerField('订单状态',choices=ORDERSTATUS)
+
 class Banner(models.Model):
     title=models.CharField(max_length=30,verbose_name='banner')
     picture = models.ImageField(upload_to='static/upload/banner',verbose_name='图片')    

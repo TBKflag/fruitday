@@ -21,6 +21,7 @@
 		<li class='left'><a href="">上海</a></li>
 		<li class='left'><a href="">满百包邮</a></li>
 		<li class='left'><a href="" id='stare-recive'>星夜达</a></li>
+		<li class='right'><a href="/cart/">[购物车]</a></li>
 		<li class='right'>手机登录</li>
 		<li class='right'>券卡兑换</li>
 		<li class='right'>果园公告</li>
@@ -50,18 +51,7 @@
 				{%endif%} 
 				{% endfor %}
 			</div>
-			<!-- <div class="t-slide current-t-slide">
-				<img src="/static/img/1.jpg" alt="" />
-			</div>
-			<div class="t-slide">
-				<img src="/static/img/2.jpg" alt="" />
-			</div>
-			<div class="t-slide">
-				<img src="/static/img/3.jpg" alt="" />
-			</div>
-			<div class="t-slide">
-				<img src="/static/img/4.jpg" alt="" />
-			</div> -->
+
 			<div class="t-slider-controls" height=500px>
 				<div class="arrow right-arrow">
 					<div class="arrow-container">
@@ -111,10 +101,7 @@
 			</a>
 			{% endif %}
 		{% endfor %}
-		<!-- <img src='/static/img/2ba20598135dbba5e97d241ebfa167d9.jpg' class='fruit-box'>
-		<img src="/static/img/25af37592bf484fbeaef1cc4ff1e09c7.jpg" class='fruit-box' alt="">
-		<img src="/static/img/904419aa2e364412b3c07c3cbda24ef9.jpg" class='fruit-box' alt="">
-		<img src="/static/img/d72b849b461c08d991c265df00a1bfde.jpg" class='fruit-boxlast' alt=""> -->
+
 	</div>
 
 	<div id='title4'>礼品卡券
@@ -134,7 +121,7 @@
 						<p>{{i.price}}/张</p>
 					</div>
 					<div class='fruit-buy-icon'>
-						<a href="">
+						<a href={% url 'cart' i.id %}>
 							<img src="/static/img/cart.png" alt="">
 						</a>
 					</div>
@@ -151,7 +138,7 @@
 						<p>{{i.price}}元/份</p>
 					</div>
 					<div class='fruit-buy-icon'>
-						<a href="">
+						<a href={% url 'cart' i.id %}>
 							<img src="/static/img/cart.png" alt="">
 						</a>
 					</div>
@@ -161,86 +148,6 @@
 		{% endfor %}
 		</ul>
 	</div>
-			<!-- <li class='pic'>
-				<div><img src="/static/img/1-270x270-419-TPSKW6SP.jpg" alt=""></div>
-				<span>
-					<div class='text-left'>
-						<p>天天果园充值卡</p>
-						<p>￥100/张</p>
-					</div>
-					<div class='fruit-buy-icon'><a href=""><img src="/static/img/cart.png" alt=""></a></div>
-				</span>
-			</li>
-			<li class='pic'>
-				<div><img src="/static/img/1-270x270-419-TPSKW6SP.jpg" alt=""></div>
-				<span>
-					<div class='text-left'>
-						<p>天天果园充值卡</p>
-						<p>￥100/张</p>
-					</div>
-					<div class='fruit-buy-icon'><a href=""><img src="/static/img/cart.png" alt=""></a></div>
-				</span>
-			</li>
-			<li class='pic'>
-				<div><img src="/static/img/1-270x270-419-TPSKW6SP.jpg" alt=""></div>
-				<span>
-					<div class='text-left'>
-						<p>天天果园充值卡</p>
-						<p>￥100/张</p>
-					</div>
-					<div class='fruit-buy-icon'><a href=""><img src="/static/img/cart.png" alt=""></a></div>
-				</span>
-			</li>
-			<li class='pic'>
-				<div><img src="/static/img/1-270x270-419-TPSKW6SP.jpg" alt=""></div>
-				<span>
-					<div class='text-left'>
-						<p>天天果园充值卡</p>
-						<p>￥100/张</p>
-					</div>
-					<div class='fruit-buy-icon'><a href=""><img src="/static/img/cart.png" alt=""></a></div>
-				</span>
-			</li>
-			<li><div><img src="/static/img/1-270x270-419-TPSKW6SP.jpg" alt=""></div>
-				<span>
-					<div class='text-left'>
-						<p>天天果园充值卡</p>
-						<p>￥100/张</p>
-					</div>
-					<div class='fruit-buy-icon'><a href=""><img src="/static/img/cart.png" alt=""></a></div>
-				</span>
-			</li>
-			<li class='pic'>
-				<div><img src="/static/img/1-270x270-419-TPSKW6SP.jpg" alt=""></div>
-				<span>
-					<div class='text-left'>
-						<p>天天果园充值卡</p>
-						<p>￥100/张</p>
-					</div>
-					<div class='fruit-buy-icon'><a href=""><img src="/static/img/cart.png" alt=""></a></div>
-				</span>
-			</li>
-			<li class='pic'>
-				<div><img src="/static/img/1-270x270-419-TPSKW6SP.jpg" alt=""></div>
-				<span>
-					<div class='text-left'>
-						<p>天天果园充值卡</p>
-						<p>￥100/张</p>
-					</div>
-					<div class='fruit-buy-icon'><a href=""><img src="/static/img/cart.png" alt=""></a></div>
-				</span>
-			</li>
-			<li class='pic'>
-				<div><img src="/static/img/1-270x270-419-TPSKW6SP.jpg" alt=""></div>
-				<span>
-					<div class='text-left'>
-						<p>天天果园充值卡</p>
-						<p>￥100/张</p>
-					</div>
-					<div class='fruit-buy-icon'><a href=""><img src="/static/img/cart.png" alt=""></a></div>
-				</span>
-			</li> -->
-		<!-- </ul>
-	</div> -->
+		
  </body>
 </html>

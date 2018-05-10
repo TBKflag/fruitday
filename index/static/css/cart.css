@@ -1,0 +1,60 @@
+
+html,body{
+    width:100%;
+    min-height: 950px;
+    margin:0 auto;
+    padding:0;
+    position: relative;
+}
+.cartMain{
+    position: relative;
+    margin: 0 auto;
+    width:90%;
+}
+table,tr,td{
+    border-collapse:collapse;
+    border:none;
+    border-bottom:1px solid saddlebrown;
+    line-height: -50px;
+    padding: 6px;
+    vertical-align: middle;
+    text-align: center;
+}
+#allcheck{
+    margin-top:5px;
+    border:none;
+    outline: none;
+    border-radius: none;
+}
+img{width:30%;}
+.my_model{
+    background: rgb(169, 169, 170);
+    position:fixed;
+    display:none;
+    top:50%;
+    left: 50%;
+    margin-top: -80px;
+    margin-left: -100px;
+}
+.sumpricebox{
+    width: 80%;
+    height: 39px;
+    background:rgb(151, 152, 155);
+    position:fixed;
+    color:white;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 160%;
+    bottom:0;
+    margin:0 auto;
+    padding-left: 8%;
+    padding-right: 8%;
+}
+.sumprice,.count{
+    float: left;
+    margin: 0;
+}
+.count{
+    position: relative;
+    float: right;
+    color:rgb(255, 251, 37);
+}

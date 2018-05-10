@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http.response import HttpResponse,HttpResponseRedirect
 from .models import *
 # Create your views here.
+from .forms import *
 
 
 def login_views(request):
@@ -92,3 +93,39 @@ def register_views(request):
 def gooddetail_views(request,uid):
     uid=uid
     return render(request,'detail.html',locals())
+
+
+def addcart_views(request,goodid):
+    success = 'uid' in request.session
+    if success:
+        uid = request.session['uid']
+        uphone = request.session['uphone']
+        obj=Goods.objects.get(id=goodid)
+
+        goods=Cart.objects.create(uphone=uphone,title=obj.title,price=obj.price,pic=obj.picture,num=1)
+       
+        return HttpResponseRedirect('/')
+    else:
+        return HttpResponseRedirect('/login/')
+
+def subcart_views(request,goodid):
+    success = 'uid' in request.session
+    if success:
+        print(goodid)
+        obj = Cart.objects.get(id=goodid)
+        obj.delete()
+        return HttpResponseRedirect('/cart/')
+    else:
+        return HttpResponseRedirect('/login/')
+
+def cart_views(request):
+    success = 'uid' in request.session
+    if success:
+        uid = request.session['uid']
+        uphone = request.session['uphone']
+        goods = Cart.objects.filter(uphone=uphone)
+        forms = Cartform()
+        return render(request,'cart.html',locals())
+    else:
+        return HttpResponseRedirect('/login/')
+

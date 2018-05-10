@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/css/cart.css">
+<script src='/static/js/cart.js'></script>
+<script src='/static/js/jquery-1.11.0.min.js'></script>
+<script src='/static/js/cart.js'></script>
+</head>
+<body>
+    <input type="button" value='test' id='test'>
+<div>
+    <table class="cartMain">
+        <tr>
+            <td colspan="2">
+                全选
+                <input type="checkbox" name="" id="allcheck">
+            </td>        
+            <td>商品图片</td>
+            <td>商品名称</td>
+            <td>数量</td>
+            <td>价格</td> 
+            <td>操作</td>           
+        </tr>
+         <!-- {% for field in forms %} 
+         {{field.label}}:{{field}}
+         {% endfor %} -->
+        
+        {% for i in goods %}
+        <tr>
+            <td class='cartbox' colspan="2">
+                <input type="checkbox" class="onecheck">
+            </td>
+           
+            <td><img src="/{{i.pic}}" alt=""></td>
+            <td>{{i.title}}</td>
+            <td>
+                <input type="text" name="" value="1" class="num">
+            </td>
+            <td class="price">{{i.price}}</td>
+            <td>
+                <a href="javascript:;" class='addgood'>增加</a>
+                <a href="javascript:;" class="delBtn">
+                    删除
+                </a>
+            </td>
+        </tr>
+        <section class="my_model">
+            <p class="title">删除宝贝
+                <span class="closeModel">X</span>
+            </p>
+            <p>您确认要删除该宝贝吗？</p>
+            <div class="opBtn">
+                <a href="javascript:;" class="dialog-sure">
+                    <a href={% url 'subcart' i.id %}>确定</a>
+                </a>
+                <a href="javascript:;" class="dialog-close">关闭</a>
+            </div>
+        </section>
+        {%endfor%}
+        <!-- 弹框部分，点击某个商品，获取商品ｉｄ，传如弹框，点击弹框确定，再删除购物车表的内容，现在还无法实现数据的传递 -->
+
+        
+    </table> 
+    <div class="sumpricebox">
+    <span class='sumprice'>总价：</span>
+    <a class='count' href="">结算</a>
+    </div>
+</div>
+
+</body>
+</html>

@@ -62,3 +62,11 @@ class Goods(models.Model):
         verbose_name='商品'
         verbose_name_plural=verbose_name
 
+class Cart(models.Model):
+    uphone=models.CharField(max_length=30)
+    title = models.CharField(max_length=30)
+    price=models.CharField(max_length=30)
+    num=models.IntegerField()
+    pic=models.ImageField()
+    class Meta:
+        db_table='cart'
